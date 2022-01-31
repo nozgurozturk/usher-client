@@ -1,7 +1,6 @@
 import { Button } from '@mantine/core'
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import { EventList } from '../components/EventList/EventList'
 
 const Home: NextPage = () => {
 

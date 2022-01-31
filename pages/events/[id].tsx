@@ -24,7 +24,7 @@ const EventDetail: NextPage = () => {
     <Container>
       <Event {...event} />
       
-        <Group mt="lg" spacing="lg" align="flex-start" >
+        <Group mt="lg" spacing="lg" align="flex-start" grow>
           <Layout hall={location} />
           <Paper padding="lg" mt="xl" ml="xl" radius="lg">
             <ReservationForm />

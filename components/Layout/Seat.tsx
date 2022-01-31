@@ -41,7 +41,7 @@ export const Seat: FC<SeatProps> = ({ number, features, rank, available, ...prop
                     <ColorSwatch
                         component="button"
                         onMouseEnter={() => setOpened(true)} onMouseLeave={() => setOpened(false)}
-                        color={Object.values(theme.colors).reverse()[rank][4]}
+                        color={available ? Object.values(theme.colors).reverse()[rank][4]: "gray"}
                         style={{ color: '#fff', cursor: 'pointer' }}
                     >
                         {number}

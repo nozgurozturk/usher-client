@@ -1,5 +1,5 @@
 import useSWR, { Fetcher } from "swr"
-import { Event } from "./event"
+
 
 
 interface CheckSeatsRequest {

@@ -41,7 +41,7 @@ export const Layout: FC<LayoutProps> = ({ hall }) => {
         return null
     }
     return (
-        <Group direction="column" grow>
+        <Group direction="column">
             <Title>{hall.name}</Title>
             {
                 hall.sections.map(section => (
@@ -50,7 +50,7 @@ export const Layout: FC<LayoutProps> = ({ hall }) => {
                         <Paper padding="md" radius="xl">
                             {
                                 section.rows.sort((a, b) => a.order - b.order).map(row => (
-                                    <Group direction="row" grow>
+                                    <Group direction="row">
                                         <Text>{row.name}</Text>
                                         {
                                             row.seats.map(seat => (

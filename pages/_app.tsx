@@ -1,12 +1,13 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ActionIcon, AppShell, ColorScheme, ColorSchemeProvider, Group, Header, MantineProvider, Text, ThemeIcon, useMantineColorScheme } from '@mantine/core'
+import { ActionIcon, AppShell, Box, ColorScheme, ColorSchemeProvider, Group, Header, Image, MantineProvider, Text, ThemeIcon, useMantineColorScheme } from '@mantine/core'
 import { useColorScheme } from '@mantine/hooks';
 import { useState } from 'react';
 import { IconTicket, IconMoon, IconSun } from '@tabler/icons';
 import { SWRConfig } from 'swr';
 import { NotificationsProvider } from '@mantine/notifications';
+import Link from 'next/link';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const preferredColorScheme = useColorScheme();
@@ -42,15 +43,25 @@ function MyApp({ Component, pageProps }: AppProps) {
                 header={
                   <Header height={60} padding="md">
                     <Group position="apart" align="center" direction="row">
-                      <Group align="center" direction="row">
-                        <ThemeIcon>
-                          <IconTicket />
-                        </ThemeIcon>
+                      <Link href={{ pathname: "/" }}>
+                        <Box component='a' >
+                          <Group align="center" direction="row" spacing="xs" style={{ cursor: "pointer" }}>
 
-                        <Text weight={700}>
-                          Usher
-                        </Text>
-                      </Group>
+                            <ActionIcon color="dark" variant='transparent'>
+                              <IconTicket />
+                            </ActionIcon>
+                            <Text component="span"
+                              align="center"
+                              variant="gradient"
+                              gradient={{ from: 'orange', to: 'red', deg: 45 }}
+                              size="xl"
+                              weight={700}
+                              style={{ fontStyle: "italic" }}>
+                              Usher
+                            </Text>
+                          </Group>
+                        </Box>
+                      </Link>
                       <ActionIcon
                         variant="outline"
                         color={dark ? 'yellow' : 'blue'}
