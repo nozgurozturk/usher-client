@@ -56,7 +56,7 @@ export const ReservationForm: FC = () => {
 
     const resForm = useForm<FormValues>({ initialValues: INITIAL_VALUES })
 
-    const { data } = useCheckEventSeats(query.id as string, resForm.values)
+    const { data, } = useCheckEventSeats(query.id as string, resForm.values)
 
 
     const handleCheckout = async (e: FormEvent<HTMLFormElement>) => {
@@ -71,6 +71,7 @@ export const ReservationForm: FC = () => {
                     rank: resForm.values.rank ?? 0,
                 }
             })
+            
             notifications.showNotification(infoNotification("Reservation successful", "Success"))
         } catch (error) {
             notifications.showNotification(errorNotification("Reservation unsuccessfull", "Error"))

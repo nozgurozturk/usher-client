@@ -24,6 +24,7 @@ export const Event: FC<EventProps> = ({ id, name, description, startDate, endDat
             <Image
                 src={`https://picsum.photos/1080?random=${Math.floor(Math.random() * 10)}`}
                 height={320}
+                radius="lg"
                 alt={name}
             />
             <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>

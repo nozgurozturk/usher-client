@@ -1,23 +1,25 @@
 import { FC, useState } from 'react';
 import { Group, Collapse, Text, Button, Table, ThemeIcon, ActionIcon } from '@mantine/core';
-import { IconChevronUp, IconChevronDown, IconLayoutList } from '@tabler/icons';
+import { IconChevronUp, IconChevronDown, IconCalendarEvent } from '@tabler/icons';
 import Link from 'next/link';
-import { useLayouts } from '../../pages/admin/layouts/useLayouts';
+import { useEvents } from '../../pages/admin/events/useEvents';
 
-interface LayoutListItemProps {
+
+
+interface EventListItemProps {
     id: string
     name: string
-
 }
 
-const LayoutListItem: FC<LayoutListItemProps> = ({ id, name }) => {
 
+const EventListItem: FC<EventListItemProps> = ({ id, name }) => {
+    
     return (
         <tr key={id}>
             <td> <Text weight={500}>{name}</Text></td>
             <td>
                 <Link href={{
-                    pathname: '/admin/layouts/[id]',
+                    pathname: '/admin/events/[id]',
                     query: {
                         id
                     }
@@ -32,8 +34,8 @@ const LayoutListItem: FC<LayoutListItemProps> = ({ id, name }) => {
     );
 }
 
-export const LayoutList = () => {
-    const { data, error } = useLayouts()
+export const EventListAdmin = () => {
+    const { data, error } = useEvents()
     const [opened, setOpen] = useState(false);
 
     if (!!error) {
@@ -45,16 +47,16 @@ export const LayoutList = () => {
     }
 
     if (data.length === 0) {
-        return <div>No layouts found</div>
+        return <div>No events found</div>
     }
     return (
         <Group direction="column" grow>
             <Group position="apart" >
                 <Group noWrap>
                     <ThemeIcon>
-                        <IconLayoutList />
+                        <IconCalendarEvent />
                     </ThemeIcon>
-                    <Text weight={700}>Layouts</Text>
+                    <Text weight={700}>Events</Text>
                 </Group>
 
                 <ActionIcon onClick={() => setOpen((prev) => !prev)}>
@@ -69,7 +71,7 @@ export const LayoutList = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>{data.map(e => <LayoutListItem {...e} />)}</tbody>
+                    <tbody>{data.map(e => <EventListItem {...e} />)}</tbody>
                 </Table>
             </Collapse>
         </Group>

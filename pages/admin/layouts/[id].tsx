@@ -2,7 +2,7 @@ import { Container } from '@mantine/core'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { Layout } from '../../../components/Layout/Layout'
-import { useLayout } from '../useLayout'
+import { useLayout } from './useLayout'
 
 
 

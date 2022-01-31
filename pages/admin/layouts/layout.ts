@@ -1,6 +1,6 @@
 export interface Hall {
     id: string;
-    name:     string;
+    name: string;
     sections: Section[];
 }
 
@@ -10,16 +10,17 @@ interface Section {
 }
 
 interface Row {
-    name:  string;
+    name: string;
     order: number;
     seats: Seat[];
 }
 
-interface Seat {
-    position:  Position;
-    number:    number;
-    features:  number;
-    rank:      number;
+export interface Seat {
+    id: string;
+    position: Position;
+    number: number;
+    features: number;
+    rank: number;
     available: boolean;
 }
 

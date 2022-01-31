@@ -19,7 +19,7 @@ const FEATURES = {
 const hasFeature = (features: SeatProps['features'], feature: number) => (features & feature) === feature
 
 
-export const Seat: FC<SeatProps> = ({ number, features, rank, available, ...props }) => {
+export const Seat: FC<SeatProps> = ({ number, features, rank, available }) => {
     const theme = useMantineTheme();
 
     const [opened, setOpened] = useState(false);
@@ -42,7 +42,7 @@ export const Seat: FC<SeatProps> = ({ number, features, rank, available, ...prop
                         component="button"
                         onMouseEnter={() => setOpened(true)} onMouseLeave={() => setOpened(false)}
                         color={available ? Object.values(theme.colors).reverse()[rank][4]: "gray"}
-                        style={{ color: '#fff', cursor: 'pointer' }}
+                        style={{ color: '#fff', cursor: available ? 'pointer' : 'not-allowed' }}
                     >
                         {number}
                     </ColorSwatch>
