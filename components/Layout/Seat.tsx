@@ -19,7 +19,7 @@ const FEATURES = {
 const hasFeature = (features: SeatProps['features'], feature: number) => (features & feature) === feature
 
 
-export const Seat: FC<SeatProps> = ({ number, features, rank, available , ...props}) => {
+export const Seat: FC<SeatProps> = ({ number, features, rank, available, ...props }) => {
     const theme = useMantineTheme();
 
     const [opened, setOpened] = useState(false);
@@ -37,24 +37,24 @@ export const Seat: FC<SeatProps> = ({ number, features, rank, available , ...pro
 
                 styles={{ body: { pointerEvents: 'none' } }}
                 target={
-                   
-                        <ColorSwatch
-                            component="button"
-                            onMouseEnter={() => setOpened(true)} onMouseLeave={() => setOpened(false)}
-                            color={Object.values(theme.colors).reverse()[rank][4]}
-                            style={{ color: '#fff', cursor: 'pointer' }}
-                        >
-                            {number}
-                        </ColorSwatch>
-                    
+
+                    <ColorSwatch
+                        component="button"
+                        onMouseEnter={() => setOpened(true)} onMouseLeave={() => setOpened(false)}
+                        color={Object.values(theme.colors).reverse()[rank][4]}
+                        style={{ color: '#fff', cursor: 'pointer' }}
+                    >
+                        {number}
+                    </ColorSwatch>
+
                 }
             >
-                
+                <Group>
                     <Text weight={600} size="sm">Rank: {rank}</Text>
                     {Object.entries(FEATURES).map(([key, value]) => (
-                            <Text weight={600} size="sm" key={key}>{hasFeature(features, value) && key}</Text>
-                        ))}
-                
+                        hasFeature(features, value) && <Text weight={600} size="sm" key={key}>{key}</Text>
+                    ))}
+                </Group>
             </Popover>
         </Group>
 

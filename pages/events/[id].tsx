@@ -1,9 +1,9 @@
-import { Center, Container } from '@mantine/core'
+import { Center, Container, Group, Paper } from '@mantine/core'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { Event } from '../../components/Event/Event'
 import { Layout } from '../../components/Layout/Layout'
-import { Seat } from '../../components/Layout/Seat'
+import { ReservationForm } from '../../components/ReservationForm/ReservationForm'
 import { useEvent } from './useEvent'
 
 
@@ -18,15 +18,20 @@ const EventDetail: NextPage = () => {
     return <div>Loading...</div>
   }
 
-  const  { location, ...event } = data
+  const { location, ...event } = data
 
   return (
-    <>
-    <Event {...event} />
-    <Center>
-      <Layout hall={location} />
-    </Center>
-    </>
+    <Container>
+      <Event {...event} />
+      
+        <Group mt="lg" spacing="lg" align="flex-start" >
+          <Layout hall={location} />
+          <Paper padding="lg" mt="xl" ml="xl" radius="lg">
+            <ReservationForm />
+          </Paper>
+        </Group>
+      
+    </Container>
 
   )
 }

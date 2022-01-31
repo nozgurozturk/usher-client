@@ -6,6 +6,7 @@ import { useColorScheme } from '@mantine/hooks';
 import { useState } from 'react';
 import { IconTicket, IconMoon, IconSun } from '@tabler/icons';
 import { SWRConfig } from 'swr';
+import { NotificationsProvider } from '@mantine/notifications';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const preferredColorScheme = useColorScheme();
@@ -35,40 +36,42 @@ function MyApp({ Component, pageProps }: AppProps) {
               primaryColor: 'orange'
             }}
           >
-            <AppShell
-              padding="md"
-              header={
-                <Header height={60} padding="md">
-                  <Group position="apart" align="center" direction="row">
-                    <Group align="center" direction="row">
-                      <ThemeIcon>
-                        <IconTicket />
-                      </ThemeIcon>
+            <NotificationsProvider position="top-right">
+              <AppShell
+                padding="md"
+                header={
+                  <Header height={60} padding="md">
+                    <Group position="apart" align="center" direction="row">
+                      <Group align="center" direction="row">
+                        <ThemeIcon>
+                          <IconTicket />
+                        </ThemeIcon>
 
-                      <Text weight={700}>
-                        Usher
-                      </Text>
+                        <Text weight={700}>
+                          Usher
+                        </Text>
+                      </Group>
+                      <ActionIcon
+                        variant="outline"
+                        color={dark ? 'yellow' : 'blue'}
+                        onClick={() => toggleColorScheme()}
+                        title="Toggle color scheme"
+                      >
+                        {dark ? (
+                          <IconSun style={{ width: 18, height: 18 }} />
+                        ) : (
+                          <IconMoon style={{ width: 18, height: 18 }} />
+                        )}
+                      </ActionIcon>
                     </Group>
-                    <ActionIcon
-                      variant="outline"
-                      color={dark ? 'yellow' : 'blue'}
-                      onClick={() => toggleColorScheme()}
-                      title="Toggle color scheme"
-                    >
-                      {dark ? (
-                        <IconSun style={{ width: 18, height: 18 }} />
-                      ) : (
-                        <IconMoon style={{ width: 18, height: 18 }} />
-                      )}
-                    </ActionIcon>
-                  </Group>
-                </Header>}
-              styles={(theme) => ({
-                main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
-              })}
-            >
-              <Component {...pageProps} />
-            </AppShell>
+                  </Header>}
+                styles={(theme) => ({
+                  main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
+                })}
+              >
+                <Component {...pageProps} />
+              </AppShell>
+            </NotificationsProvider>
           </MantineProvider>
         </ColorSchemeProvider>
       </SWRConfig>
