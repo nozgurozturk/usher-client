@@ -35,6 +35,7 @@ const errorNotification = (message: string, title: string): NotificationProps =>
     message,
     title,
     color: "red",
+    
 })
 
 const notifyWith = (remaining: number, count: number) => {

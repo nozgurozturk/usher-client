@@ -45,16 +45,16 @@ export const Layout: FC<LayoutProps> = ({ hall }) => {
             <Title>{hall.name}</Title>
             {
                 hall.sections.map(section => (
-                    <Group spacing="xs" direction="column">
+                    <Group key={section.name} spacing="xs" direction="column">
                         <Text weight={700}>Section - {section.name}</Text>
                         <Paper padding="md" radius="xl">
                             {
                                 section.rows.sort((a, b) => a.order - b.order).map(row => (
-                                    <Group spacing="xs" direction="row">
+                                    <Group key={`${section.name}-${row.name}`} spacing="xs" direction="row">
                                         <Text>{row.name}</Text>
                                         {
                                             row.seats.map(seat => (
-                                                <Seat {...seat} />
+                                                <Seat key={`${section.name}-${row.name}-${seat.number}`} {...seat} />
                                             ))
                                         }
                                     </Group>

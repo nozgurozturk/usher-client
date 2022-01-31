@@ -97,7 +97,7 @@ export const EventDetails: FC<EventDetailsProps> = ({ tickets, reservations }) =
 
                                 </tr>
                             </thead>
-                            <tbody>{tickets.map(t => <TicketListItem ticket={t} />)}</tbody>
+                            <tbody>{tickets.map(t => <TicketListItem key={t.id} ticket={t} />)}</tbody>
                         </Table>
                     </Collapse>
                 </Group>
@@ -127,7 +127,7 @@ export const EventDetails: FC<EventDetailsProps> = ({ tickets, reservations }) =
                                     <th>Size</th>
                                 </tr>
                             </thead>
-                            <tbody>{reservations.map(r => <ReservationListItem reservation={r} />)}</tbody>
+                            <tbody>{reservations.map(r => <ReservationListItem key={r.id} reservation={r} />)}</tbody>
                         </Table>
                     </Collapse>
                 </Group>

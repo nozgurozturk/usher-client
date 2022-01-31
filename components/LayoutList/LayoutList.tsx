@@ -69,7 +69,7 @@ export const LayoutList = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>{data.map(e => <LayoutListItem {...e} />)}</tbody>
+                    <tbody>{data.map(e => <LayoutListItem key={e.id} {...e} />)}</tbody>
                 </Table>
             </Collapse>
         </Group>

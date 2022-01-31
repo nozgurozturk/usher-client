@@ -71,7 +71,7 @@ export const EventListAdmin = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>{data.map(e => <EventListItem {...e} />)}</tbody>
+                    <tbody>{data.map(e => <EventListItem key={e.id} {...e} />)}</tbody>
                 </Table>
             </Collapse>
         </Group>
