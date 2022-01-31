@@ -1,4 +1,4 @@
-import { Card, Image, Text, Badge, Button, Group, useMantineTheme } from '@mantine/core';
+import { Card, Image, Text, Button, Group, useMantineTheme } from '@mantine/core';
 import Link from 'next/link';
 import { FC } from 'react';
 import { useEvents } from '../../pages/events/useEvents';
@@ -57,7 +57,7 @@ export const EventList = () => {
     }
 
     if (!data) {
-        return <div>Loading...{process.env.NEXT_PUBLIC_API_URL}</div>
+        return <div>Loading...</div>
     }
 
     if (data.length === 0) {

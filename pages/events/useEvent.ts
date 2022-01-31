@@ -2,10 +2,10 @@ import useSWR, { Fetcher } from "swr"
 import { Event } from "./event"
 
 
-export const getEvents = async (path: string): Promise<Event[]> => {
+export const getEvent = async (path: string, id:string): Promise<Event> => {
     const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api/v1")
-    url.pathname = path
-
+    url.pathname = `${path}/${id}` 
+ 
     const response = await fetch(url.toString(), {
         method: 'GET',
         headers: {
@@ -15,8 +15,8 @@ export const getEvents = async (path: string): Promise<Event[]> => {
     return response.json()
 }
 
-const fetcher: Fetcher<Event[], string> = (url: string) => getEvents(url)
+const fetcher: Fetcher<Event, [string, string]> = (url: string, id: string) => getEvent(url, id)
 
-export const useEvents = () => {
-    return useSWR<Event[]>('/api/v1/events', fetcher)
+export const useEvent = (id: string) => {
+    return useSWR<Event>(() => id ? ['/api/v1/events', id]: null, fetcher)
 }

@@ -4,14 +4,12 @@ import { EventList } from '../../components/EventList/EventList'
 import { getEvents } from './useEvents'
 
 type FB = {
-    [key:string]: any
-}
+    [key:string]: any}
 interface Props {
     fallback: FB
 }
 
 const Events: NextPage<Props> = ({fallback}) => {
-
   return (
       <SWRConfig value={{fallback}}>
           <EventList />
