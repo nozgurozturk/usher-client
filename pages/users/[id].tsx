@@ -41,7 +41,7 @@ const UserDetail: NextPage = () => {
                             <Paper
                                 sx={(theme) => ({
                                     height: 120,
-                                    width: 240,
+                                    width: 320,
                                     background: `linear-gradient(45deg, ${theme.colors.orange[4]} 0%, ${theme.colors.red[4]} 100%)`,
 
                                 })}

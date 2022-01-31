@@ -1,4 +1,4 @@
-import { Button } from '@mantine/core'
+import { Paper, Button, Table } from '@mantine/core'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import { useUsers } from './useUsers'
@@ -18,20 +18,34 @@ const Users: NextPage = () => {
     return <div>No users</div>
   }
   return (
-    <>
-      {data.map(user => (
-        <div key={user.id}>
-          <Link href={{
-            pathname: '/users/[id]',
-            query: {
-              id: user.id
-            }
-          }} >
-            <a>{user.name}</a>
-          </Link>
-        </div>
-      ))}
-    </>)
+    <Paper>
+      <Table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>
+                <Link href={{
+                  pathname: '/users/[id]',
+                  query: {
+                    id: user.id
+                  }
+                }} >{user.name}
+                </Link>
+              </td>
+
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+
+    </Paper>)
 
 }
 
