@@ -51,7 +51,7 @@ export const EventListAdmin = () => {
     }
     return (
         <Group direction="column" grow>
-            <Group position="apart" >
+            <Group position="apart">
                 <Group noWrap>
                     <ThemeIcon>
                         <IconCalendarEvent />
@@ -59,7 +59,7 @@ export const EventListAdmin = () => {
                     <Text weight={700}>Events</Text>
                 </Group>
 
-                <ActionIcon onClick={() => setOpen((prev) => !prev)}>
+                <ActionIcon ml="auto" onClick={() => setOpen((prev) => !prev)}>
                     {opened ? <IconChevronUp /> : <IconChevronDown />}
                 </ActionIcon>
             </Group>

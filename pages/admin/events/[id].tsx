@@ -1,4 +1,4 @@
-import { Box, Group, Container, Button } from '@mantine/core'
+import { Box, Group, Container, Button, SimpleGrid } from '@mantine/core'
 import { useNotifications } from '@mantine/notifications'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
@@ -42,17 +42,17 @@ const EventDetail: NextPage = () => {
     }
 
     return (
-        <Container>
-            <Group direction="column" grow>
+        <Container >
+            <Group direction="column" grow noWrap>
                 <Event {...data.event} />
-                <Group direction="row" align="flex-start" grow>
+                <Group align="flex-start" grow noWrap >
                     <Layout hall={data.layout} />
-                    <Box mt={40}>
+                    <Group mt={40} direction="column">
                         <Button fullWidth onClick={handleReserve} variant="gradient" gradient={{ from: 'orange', to: 'grape' }} >
                             Reserve Seats
                         </Button>
                         <EventDetails tickets={data.tickets ?? []} reservations={data.reservations ?? []} />
-                    </Box>
+                    </Group>
                 </Group>
             </Group>
         </Container>

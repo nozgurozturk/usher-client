@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Group, Collapse, Text, Table, ThemeIcon, ActionIcon, Paper } from '@mantine/core';
+import { Group, Collapse, Text, Table, ThemeIcon, ActionIcon, Paper, Space } from '@mantine/core';
 import { IconChevronUp, IconChevronDown, IconSofa, IconRegistered } from '@tabler/icons';
 import { Reservation, Ticket } from '../../pages/admin/events/event';
 
@@ -61,7 +61,7 @@ interface EventDetailsProps {
 }
 
 export const EventDetails: FC<EventDetailsProps> = ({ tickets, reservations }) => {
-    
+
     const [opened, setOpen] = useState([false, false]);
 
     if (!tickets || !reservations) {
@@ -72,7 +72,7 @@ export const EventDetails: FC<EventDetailsProps> = ({ tickets, reservations }) =
         return <div>No details found</div>
     }
     return (
-        <Group direction="column" grow>
+        <Group style={{width:"100%"}} direction="column" grow>
             <Paper padding="lg" mt="xl" ml="xl" radius="lg">
                 <Group direction="column" grow>
                     <Group position="apart" >
@@ -82,8 +82,7 @@ export const EventDetails: FC<EventDetailsProps> = ({ tickets, reservations }) =
                             </ThemeIcon>
                             <Text weight={700}>Tickets</Text>
                         </Group>
-
-                        <ActionIcon onClick={() => setOpen(([ticket, reservation]) => [!ticket, reservation])}>
+                        <ActionIcon  onClick={() => setOpen(([ticket, reservation]) => [!ticket, reservation])}>
                             {opened[0] ? <IconChevronUp /> : <IconChevronDown />}
                         </ActionIcon>
                     </Group>

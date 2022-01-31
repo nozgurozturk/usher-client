@@ -45,12 +45,12 @@ export const Layout: FC<LayoutProps> = ({ hall }) => {
             <Title>{hall.name}</Title>
             {
                 hall.sections.map(section => (
-                    <Group direction="column">
+                    <Group spacing="xs" direction="column">
                         <Text weight={700}>Section - {section.name}</Text>
                         <Paper padding="md" radius="xl">
                             {
                                 section.rows.sort((a, b) => a.order - b.order).map(row => (
-                                    <Group direction="row">
+                                    <Group spacing="xs" direction="row">
                                         <Text>{row.name}</Text>
                                         {
                                             row.seats.map(seat => (
