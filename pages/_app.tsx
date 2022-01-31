@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <Box component='a' >
                           <Group align="center" direction="row" spacing="xs" style={{ cursor: "pointer" }}>
 
-                            <ActionIcon color="dark" variant='transparent'>
+                            <ActionIcon color="orange" variant='transparent'>
                               <IconTicket />
                             </ActionIcon>
                             <Text component="span"

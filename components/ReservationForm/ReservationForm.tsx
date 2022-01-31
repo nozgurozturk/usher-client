@@ -25,13 +25,13 @@ const RANKS = new Array(MAX_RANK).fill(0).map((_, i) => ({
     label: `Rank ${i + 1}`,
 }))
 
-const infoNotification = (message: string, title:string): NotificationProps => ({
+const infoNotification = (message: string, title: string): NotificationProps => ({
     message,
     title,
     color: "blue",
 })
 
-const errorNotification = (message: string, title:string): NotificationProps => ({
+const errorNotification = (message: string, title: string): NotificationProps => ({
     message,
     title,
     color: "red",
@@ -59,7 +59,6 @@ export const ReservationForm: FC = () => {
     const { data } = useCheckEventSeats(query.id as string, resForm.values)
 
 
-
     const handleCheckout = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         try {
@@ -76,10 +75,8 @@ export const ReservationForm: FC = () => {
         } catch (error) {
             notifications.showNotification(errorNotification("Reservation unsuccessfull", "Error"))
         }
-        
+
     }
-
-
 
     useEffect(() => {
         if (!!data) {

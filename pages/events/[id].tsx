@@ -23,7 +23,6 @@ const EventDetail: NextPage = () => {
   return (
     <Container>
       <Event {...event} />
-      
         <Group mt="lg" spacing="lg" align="flex-start" grow>
           <Layout hall={location} />
           <Paper padding="lg" mt="xl" ml="xl" radius="lg">
