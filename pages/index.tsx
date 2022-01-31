@@ -20,6 +20,13 @@ const Home: NextPage = () => {
           Go To Users
         </Button>
       </Link>
+      <Link href={{
+        pathname: '/admin',
+      }}>
+        <Button component="a" variant="gradient" gradient={{ from: 'pink', to: 'grape' }} style={{ marginTop: 14 }}>
+          Go To Dashboard
+        </Button>
+      </Link>
     </Group>
   )
 }

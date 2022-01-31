@@ -34,7 +34,6 @@ const UserDetail: NextPage = () => {
             <Title>{data[0].user.name}</Title>
             <Text weight={700}>Tickets</Text>
             <Group mt="lg" direction="column" align="flex-start" grow >
-
                 {
                     data.map((ticket) => (
                         <Group
