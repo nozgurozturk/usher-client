@@ -14,7 +14,7 @@ interface CheckSeatsResponse {
 
 
 export const checkSeats = async (path: string, id: string, req: CheckSeatsRequest): Promise<CheckSeatsResponse> => {
-    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api/v1")
+    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080")
     url.pathname = `${path}/${id}/check`
 
     const response = await fetch(url.toString(), {

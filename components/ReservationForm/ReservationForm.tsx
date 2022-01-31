@@ -39,9 +39,9 @@ const errorNotification = (message: string, title: string): NotificationProps =>
 
 const notifyWith = (remaining: number, count: number) => {
     if (remaining < count) {
-        return errorNotification(`You can reserve ${count} seats`, "Seats are not available")
+        return errorNotification(`You can not reserve ${count} seats`, "Seats are not available")
     }
-    return infoNotification(`You can not reserve ${remaining} seats`, "Seats available")
+    return infoNotification(`You can reserve ${remaining} seats`, "Seats available")
 }
 
 

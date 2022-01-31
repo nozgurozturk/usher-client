@@ -2,7 +2,7 @@ import useSWR, { Fetcher } from "swr"
 
 
 export const reserveSeats = async (path: string, id: string): Promise<unknown> => {
-    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api/v1")
+    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080")
     url.pathname = `${path}/${id}/reserve`
 
     const response = await fetch(url.toString(), {

@@ -6,7 +6,7 @@ interface User {
 }
 
 export const getUsers = async (path: string): Promise<User[]> => {
-    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api/v1")
+    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080")
     url.pathname = path
 
     const response = await fetch(url.toString(), {

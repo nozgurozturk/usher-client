@@ -3,7 +3,7 @@ import { Event } from "./event"
 
 
 export const getEvent = async (path: string, id:string): Promise<Event> => {
-    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api/v1")
+    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080")
     url.pathname = `${path}/${id}` 
  
     const response = await fetch(url.toString(), {
