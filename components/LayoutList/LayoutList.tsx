@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { Group, Collapse, Text, Button, Table, ThemeIcon, ActionIcon } from '@mantine/core';
 import { IconChevronUp, IconChevronDown, IconLayoutList } from '@tabler/icons';
 import Link from 'next/link';
-import { useLayouts } from '../../pages/admin/layouts/useLayouts';
+import { useLayouts } from '../../services/admin/layout/useLayouts';
 
 interface LayoutListItemProps {
     id: string

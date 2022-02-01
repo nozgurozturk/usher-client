@@ -1,7 +1,7 @@
 import type { NextPage, NextPageContext } from 'next'
 import { SWRConfig } from 'swr'
 import { EventList } from '../../components/EventList/EventList'
-import { getEvents } from './useEvents'
+import { getEvents } from '../../services/public/event/useEvents'
 
 type FB = {
     [key:string]: any}

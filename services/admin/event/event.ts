@@ -1,4 +1,4 @@
-import { Hall, Seat } from "../layouts/layout";
+import { Hall, Seat } from "../layout/layout";
 
 export interface Event {
     id:          string;

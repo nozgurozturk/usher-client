@@ -1,5 +1,3 @@
-import useSWR, { Fetcher } from "swr"
-
 interface CheckoutRequest {
     count: number
     eventID: string
@@ -34,9 +32,3 @@ export const checkout = async (path: string, req: CheckoutRequest): Promise<Chec
     })
     return response.json()
 }
-
-// const fetcher: Fetcher<CheckoutResponse, [string, CheckoutRequest]> = (url: string, req:CheckoutRequest) => checkout(url, req)
-
-// export const useCheckout = (req: CheckoutRequest) => {
-//     return useSWR<CheckoutResponse>(() => req?.count && req?.eventID && req?.userID ? ['/api/v1/checkout', req] : null, fetcher)
-// }

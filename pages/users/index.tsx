@@ -1,7 +1,7 @@
 import { Paper, Button, Table } from '@mantine/core'
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import { useUsers } from './useUsers'
+import { useUsers } from '../../services/public/user/useUsers'
 
 const Users: NextPage = () => {
   const { data, error } = useUsers()

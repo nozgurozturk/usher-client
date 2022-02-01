@@ -1,7 +1,7 @@
 import { Container, Group, Paper, Text, Title } from "@mantine/core"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
-import { useUserTickets } from "./useUserTickets"
+import { useUserTickets } from "../../services/public/user/useUserTickets"
 
 const FEATURES = {
     Aisle: 1,

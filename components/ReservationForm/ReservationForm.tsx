@@ -2,10 +2,10 @@ import { Button, MultiSelect, Select, NumberInput, Text, Group, SegmentedControl
 import { useForm } from "@mantine/hooks"
 import { NotificationProps, useNotifications } from "@mantine/notifications";
 import { useRouter } from "next/router";
-import { FC, FormEvent, useCallback, useEffect, useState } from "react"
-import { useCheckEventSeats } from "../../pages/events/useCheckEventSeats";
-import { checkout } from "../../pages/events/useCheckout";
-import { useUsers } from "../../pages/users/useUsers";
+import { FC, FormEvent, useEffect, useState } from "react"
+import { useCheckEventSeats } from "../../services/public/event/useCheckEventSeats";
+import { checkout } from "../../services/public/event/useCheckout";
+import { useUsers } from "../../services/public/user/useUsers";
 
 interface FormValues {
     rank: number | null;
@@ -35,7 +35,7 @@ const errorNotification = (message: string, title: string): NotificationProps =>
     message,
     title,
     color: "red",
-    
+
 })
 
 const notifyWith = (remaining: number, count: number) => {
@@ -72,7 +72,7 @@ export const ReservationForm: FC = () => {
                     rank: resForm.values.rank ?? 0,
                 }
             })
-            
+
             notifications.showNotification(infoNotification("Reservation successful", "Success"))
         } catch (error) {
             notifications.showNotification(errorNotification("Reservation unsuccessfull", "Error"))

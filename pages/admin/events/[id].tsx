@@ -6,8 +6,8 @@ import { useSWRConfig } from 'swr'
 import { Event } from '../../../components/Event/Event'
 import { EventDetails } from '../../../components/Event/EventDetails'
 import { Layout } from '../../../components/Layout/Layout'
-import { useEvent } from './useEvent'
-import { reserveSeats } from './useReserve'
+import { useEvent } from '../../../services/admin/event/useEvent'
+import { reserveSeats } from '../../../services/admin/event/useReserve'
 
 const EventDetail: NextPage = () => {
     const notifications = useNotifications()

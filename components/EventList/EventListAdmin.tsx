@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { Group, Collapse, Text, Button, Table, ThemeIcon, ActionIcon } from '@mantine/core';
 import { IconChevronUp, IconChevronDown, IconCalendarEvent } from '@tabler/icons';
 import Link from 'next/link';
-import { useEvents } from '../../pages/admin/events/useEvents';
+import { useEvents } from '../../services/admin/event/useEvents';
 
 
 

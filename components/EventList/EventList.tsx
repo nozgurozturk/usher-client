@@ -1,7 +1,7 @@
 import { Card, Image, Text, Button, Group, useMantineTheme } from '@mantine/core';
 import Link from 'next/link';
 import { FC } from 'react';
-import { useEvents } from '../../pages/events/useEvents';
+import { useEvents } from '../../services/public/event/useEvents';
 
 
 interface EventListItemProps {

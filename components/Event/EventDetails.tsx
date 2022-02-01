@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Group, Collapse, Text, Table, ThemeIcon, ActionIcon, Paper, Space } from '@mantine/core';
 import { IconChevronUp, IconChevronDown, IconSofa, IconRegistered } from '@tabler/icons';
-import { Reservation, Ticket } from '../../pages/admin/events/event';
+import { Reservation, Ticket } from '../../services/admin/event/event';
 
 interface ReservationListItemProps {
     reservation: Reservation

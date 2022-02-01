@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Event } from '../../components/Event/Event'
 import { Layout } from '../../components/Layout/Layout'
 import { ReservationForm } from '../../components/ReservationForm/ReservationForm'
-import { useEvent } from './useEvent'
+import { useEvent } from '../../services/public/event/useEvent'
 
 
 const EventDetail: NextPage = () => {
